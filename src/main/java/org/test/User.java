@@ -1,5 +1,6 @@
 package org.test;
 
+import java.util.Arrays;
 import java.util.UUID;
 
 public class User {
@@ -16,7 +17,22 @@ public class User {
     }
 
     enum Gender {
-        MALE, FEMALE;
+        MALE("M"), FEMALE("F");
+        Gender(String value) {
+            this.value = value;
+        }
+        private final String value;
+
+        public String getValue() {
+            return value;
+        }
+        public static Gender findByValue(String value) {
+            return Arrays
+                    .stream(values())
+                    .filter(gender1 -> gender1.value.equalsIgnoreCase(value))
+                    .findFirst()
+                    .orElse(null);
+        }
     }
 
     public String getId() {

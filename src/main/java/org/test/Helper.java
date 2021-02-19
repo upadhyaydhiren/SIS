@@ -53,7 +53,7 @@ public class Helper {
                     gender = scanner.nextLine();
                     System.out.println("Entre Class No");
                     classNo = scanner.nextLine();
-                    student = new Student(firstName, lastName, User.Gender.valueOf(gender), classNo);
+                    student = new Student(firstName, lastName, User.Gender.findByValue(gender), classNo);
                     sisOperation.updateStudent(id, student);
                     break;
                 case 0:
