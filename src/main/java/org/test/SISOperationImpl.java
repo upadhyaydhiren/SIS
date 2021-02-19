@@ -1,6 +1,7 @@
 package org.test;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 
@@ -24,6 +25,7 @@ public class SISOperationImpl implements SISOperation {
 
     @Override
     public List<Student> findAllStudent() {
+        students.sort(Comparator.comparing(User::getFirstName).thenComparing(User::getLastName));
         return students;
     }
 
