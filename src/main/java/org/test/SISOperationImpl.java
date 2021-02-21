@@ -8,9 +8,12 @@ import java.util.Objects;
 public class SISOperationImpl implements SISOperation {
 
     private final List<Student> students;
+    private final List<Admin> admins;
+   // private Object Admin;
 
     public SISOperationImpl() {
         this.students = new ArrayList<>();
+        this.admins =new ArrayList<>();
     }
 
     @Override
@@ -22,14 +25,24 @@ public class SISOperationImpl implements SISOperation {
 
         students.add(student);
     }
+    @Override
+    public void addAdmin(Admin admin)
+    {
+        admins.add(admin);
+    }
 
     @Override
     public List<Student> findAllStudent() {
         students.sort(Comparator.comparing(User::getFirstName).thenComparing(User::getLastName));
         return students;
     }
-
-    @Override
+  @Override
+  public List<Admin>SortAllAdmin()
+  {
+     admins.sort(Comparator.comparing(User::getFirstName).thenComparing(User::getLastName));
+     return admins;
+  }
+  @Override
     public void updateStudent(String studentId, Student student) {
         Student matchedStudent = findById(studentId);
 
