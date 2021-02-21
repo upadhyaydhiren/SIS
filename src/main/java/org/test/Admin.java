@@ -1,5 +1,7 @@
 package org.test;
 
+import java.util.Arrays;
+
 public class Admin extends User{
 
     private Department department;
@@ -26,8 +28,31 @@ public class Admin extends User{
     public void setSalary(Double salary) {
         this.salary = salary;
     }
+    @Override
+    public String toString() {
+        return "FirstName=" +this.getFirstName()+
+                "\nLastName="+this.getLastName()+
+                ",\n"+"Gender="+this.getGender()+
+                "\n"+"Department="+this.getDepartment()+
+                "\nSalary="+getSalary();
+    }
 
     enum Department {
-        HR, SPORTS, TEACHING
+        HR("H"), Sports("S"),Teaching("T");
+        Department(String value) {
+            this.value = value;
+        }
+        private final String value;
+
+        public String getValue() {
+            return value;
+        }
+        public static Department findByValue(String value) {
+            return Arrays
+                    .stream(values())
+                    .filter(gender1 -> gender1.value.equalsIgnoreCase(value))
+                    .findFirst()
+                    .orElse(null);
+        }
     }
 }
