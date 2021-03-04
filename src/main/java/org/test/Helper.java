@@ -11,7 +11,7 @@ public class Helper {
         boolean isRun = true;
 
         while (isRun) {
-            System.out.println("1. Add New Student");
+            System.out.println("1.Add New Student");
             System.out.println("2. List All Students");
             System.out.println("3. Get Student Details");
             System.out.println("4. Update Student Details");
